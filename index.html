@@ -28,7 +28,7 @@
 
             <button id="calculateButton">Calculate Current Stock</button>
         </section>
-
+        
        <section>
     <h2>Financial Summary</h2>
 
@@ -36,6 +36,34 @@
 
     <p>Current Stock: <span id="currentStock">$0.00</span></p>
 </section>
+
+        <section>
+    <h2>Add Movement</h2>
+
+    <label for="movementName">Name</label>
+    <input type="text" id="movementName" placeholder="e.g. Groceries">
+
+    <label for="movementDate">Date</label>
+    <input type="date" id="movementDate">
+
+    <label for="movementAmount">Amount</label>
+    <input type="number" id="movementAmount" placeholder="Enter amount">
+
+    <label for="movementAccount">Account</label>
+    <select id="movementAccount">
+        <option value="debit">Debit Card</option>
+        <option value="credit">Credit Card</option>
+    </select>
+
+    <label for="movementType">Type</label>
+    <select id="movementType">
+        <option value="income">Income</option>
+        <option value="expenditure">Expenditure</option>
+    </select>
+
+    <button id="addMovementButton">Add Movement</button>
+</section>
+        
     </main>
 
     <script src="script.js"></script>
