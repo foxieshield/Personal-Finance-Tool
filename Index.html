@@ -4,12 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Personal Finance Tool</title>
+    <title>Personal Finance Tracker</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <h1>Personal Finance Tracker</h1>
+
+    <main>
+
+        <section>
+            <h2>Financial Information</h2>
+
+            <label for="creditLimit">Credit Card Credit</label>
+            <input type="number" id="creditLimit" placeholder="Enter available credit">
+
+            <label for="creditDebt">Credit Card Current Debt</label>
+            <input type="number" id="creditDebt" placeholder="Enter current debt">
+
+            <label for="debitMoney">Debit Card Current Money</label>
+            <input type="number" id="debitMoney" placeholder="Enter current money">
+
+            <button id="calculateButton">Calculate Current Stock</button>
+        </section>
+
+        <section>
+            <h2>Current Stock</h2>
+
+            <p id="currentStock">$0.00</p>
+        </section>
+
+    </main>
+
     <script src="script.js"></script>
+
 </body>
 </html>
