@@ -1,3 +1,6 @@
+const movementsList = document.getElementById("movementsList");
+
+const movements = [];
 const movementNameInput = document.getElementById("movementName");
 const movementDateInput = document.getElementById("movementDate");
 const movementAmountInput = document.getElementById("movementAmount");
@@ -40,6 +43,17 @@ addMovementButton.addEventListener("click", function () {
     const account = movementAccountInput.value;
     const type = movementTypeInput.value;
 
+
+const movement = {
+    name: name,
+    date: date,
+    amount: amount,
+    account: account,
+    type: type
+};
+
+movements.push(movement);
+    
     console.log("Name:", name);
     console.log("Date:", date);
     console.log("Amount:", amount);
