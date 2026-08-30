@@ -14,8 +14,10 @@ calculateButton.addEventListener("click", function () {
     const availableCredit = creditLimit - creditDebt;
 
     const currentStock = debitMoney + availableCredit;
-console.log("Available Credit:", availableCredit);
-console.log("Current Stock:", currentStock);
+    
+    console.log("Available Credit:", availableCredit);
+    console.log("Current Stock:", currentStock);
+    
     currentStockDisplay.textContent = "$" + currentStock.toFixed(2);
 
 });
