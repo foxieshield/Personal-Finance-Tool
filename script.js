@@ -4,6 +4,7 @@ const debitMoneyInput = document.getElementById("debitMoney");
 
 const calculateButton = document.getElementById("calculateButton");
 const currentStockDisplay = document.getElementById("currentStock");
+const availableCreditDisplay = document.getElementById("availableCredit");
 
 calculateButton.addEventListener("click", function () {
 
