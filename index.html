@@ -29,16 +29,16 @@
             <button id="calculateButton">Calculate Current Stock</button>
         </section>
         
-       <section>
+ <section>
     <h2>Financial Summary</h2>
 
     <p>Available Credit: <span id="availableCredit">$0.00</span></p>
 
     <p>Current Stock: <span id="currentStock">$0.00</span></p>
-</section>
+ </section>
 
         <section>
-    <h2>Add Movement</h2>
+          <h2>Add Movement</h2>
 
     <label for="movementName">Name</label>
     <input type="text" id="movementName" placeholder="e.g. Groceries">
@@ -55,12 +55,6 @@
         <option value="credit">Credit Card</option>
     </select>
 
-
-<section>
-    <h2>Movements</h2>
-
-    <div id="movementsList"></div>
-</section>
             
     <label for="movementType">Type</label>
     <select id="movementType">
@@ -69,11 +63,19 @@
     </select>
 
     <button id="addMovementButton">Add Movement</button>
-</section>
+        </section>
+
+      <section>
+          <h2>Movements</h2>
+
+          <div id="movementsList"></div>
+      </section>
         
     </main>
 
     <script src="script.js"></script>
 
+
+    
 </body>
 </html>
