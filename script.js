@@ -1,5 +1,7 @@
 const movementsList = document.getElementById("movementsList");
 
+const themeButton = document.getElementById("themeButton");
+
 const movements = [];
 function displayMovements() {
     movementsList.innerHTML = "";
@@ -130,5 +132,17 @@ calculateFinancials();
     console.log("Amount:", amount);
     console.log("Account:", account);
     console.log("Type:", type);
+
+});
+
+themeButton.addEventListener("click", function () {
+
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        themeButton.textContent = "☀️ Light Mode";
+    } else {
+        themeButton.textContent = "🌙 Dark Mode";
+    }
 
 });
