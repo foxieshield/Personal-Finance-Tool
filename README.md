@@ -1,2 +1,2 @@
 # Personal-Finance-Tool
-Financial took skill set
+Finance prototype app for personal management of finances
