@@ -4,7 +4,7 @@ const movements = [];
 function displayMovements() {
     movementsList.innerHTML = "";
 
-    movements.forEach(function (movement) {
+    movements.forEach(function (movement, index) {
 
         const movementElement = document.createElement("div");
 
@@ -14,6 +14,18 @@ function displayMovements() {
             movement.amount.toFixed(2) + " | " +
             movement.account + " | " +
             movement.type;
+
+        const deleteButton = document.createElement("button");
+
+        deleteButton.textContent = "Delete";
+
+        deleteButton.addEventListener("click", function () {
+            movements.splice(index, 1);
+
+            displayMovements();
+        });
+
+        movementElement.appendChild(deleteButton);
 
         movementsList.appendChild(movementElement);
     });
