@@ -46,3 +46,46 @@ button {
     font-size: 32px;
     font-weight: bold;
 }
+
+#themeButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+body {
+    background-color: white;
+    color: black;
+}
+
+section {
+    background-color: white;
+    color: black;
+    border-color: #ccc;
+}
+
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+body.dark-mode section {
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+
+body.dark-mode button {
+    background-color: black;
+    color: white;
+    border-color: white;
+}
