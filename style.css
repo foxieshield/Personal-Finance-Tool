@@ -36,6 +36,12 @@ button {
     cursor: pointer;
 }
 
+.delete-button {
+    margin-left: 15px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
 #currentStock {
     font-size: 32px;
     font-weight: bold;
