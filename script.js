@@ -72,6 +72,8 @@ const movement = {
 };
 
 movements.push(movement);
+
+    displayMovements();
     
     console.log("Name:", name);
     console.log("Date:", date);
