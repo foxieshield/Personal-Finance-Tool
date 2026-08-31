@@ -1,10 +1,27 @@
 const movementsList = document.getElementById("movementsList");
 
 const movements = [];
+function displayMovements() {
+    movementsList.innerHTML = "";
+
+    movements.forEach(function (movement) {
+
+        const movementElement = document.createElement("div");
+
+        movementElement.textContent =
+            movement.name + " | " +
+            movement.date + " | $" +
+            movement.amount.toFixed(2) + " | " +
+            movement.account + " | " +
+            movement.type;
+
+        movementsList.appendChild(movementElement);
+    });
+}
+
 const movementNameInput = document.getElementById("movementName");
 const movementDateInput = document.getElementById("movementDate");
 const movementAmountInput = document.getElementById("movementAmount");
-
 const movementAccountInput = document.getElementById("movementAccount");
 const movementTypeInput = document.getElementById("movementType");
 
