@@ -17,15 +17,15 @@ function displayMovements() {
 
         const deleteButton = document.createElement("button");
 
-        deleteButton.textContent = "Delete";
+deleteButton.textContent = "Delete";
+deleteButton.classList.add("delete-button");
 
-      deleteButton.addEventListener("click", function () {
+deleteButton.addEventListener("click", function () {
     movements.splice(index, 1);
 
     displayMovements();
     calculateFinancials();
 });
-
         movementElement.appendChild(deleteButton);
 
         movementsList.appendChild(movementElement);
@@ -102,9 +102,11 @@ calculateButton.addEventListener("click", function () {
 addMovementButton.addEventListener("click", function () {
 
     const name = movementNameInput.value;
+    
     const dateValue = movementDateInput.value;
     const [year, month, day] = dateValue.split("-");
     const date = `${day}/${month}/${year}`;
+    
     const amount = Number(movementAmountInput.value);
     const account = movementAccountInput.value;
     const type = movementTypeInput.value;
@@ -120,7 +122,8 @@ const movement = {
 
 movements.push(movement);
 
-    displayMovements();
+displayMovements();
+calculateFinancials();
     
     console.log("Name:", name);
     console.log("Date:", date);
