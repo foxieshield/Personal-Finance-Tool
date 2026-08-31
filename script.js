@@ -19,11 +19,12 @@ function displayMovements() {
 
         deleteButton.textContent = "Delete";
 
-        deleteButton.addEventListener("click", function () {
-            movements.splice(index, 1);
+      deleteButton.addEventListener("click", function () {
+    movements.splice(index, 1);
 
-            displayMovements();
-        });
+    displayMovements();
+    calculateFinancials();
+});
 
         movementElement.appendChild(deleteButton);
 
@@ -47,23 +48,57 @@ const calculateButton = document.getElementById("calculateButton");
 const currentStockDisplay = document.getElementById("currentStock");
 const availableCreditDisplay = document.getElementById("availableCredit");
 
-calculateButton.addEventListener("click", function () {
-    
+function calculateFinancials() {
+
     const creditLimit = Number(creditLimitInput.value);
     const creditDebt = Number(creditDebtInput.value);
     const debitMoney = Number(debitMoneyInput.value);
 
-    const availableCredit = creditLimit - creditDebt;
+    let currentDebit = debitMoney;
+    let currentCreditDebt = creditDebt;
 
-    const currentStock = debitMoney + availableCredit;
+    movements.forEach(function (movement) {
 
-    availableCreditDisplay.textContent = "$" + availableCredit.toFixed(2);
+        if (movement.account === "debit") {
+
+            if (movement.type === "income") {
+                currentDebit += movement.amount;
+            } else if (movement.type === "expenditure") {
+                currentDebit -= movement.amount;
+            }
+
+        } else if (movement.account === "credit") {
+
+            if (movement.type === "income") {
+                currentCreditDebt -= movement.amount;
+            } else if (movement.type === "expenditure") {
+                currentCreditDebt += movement.amount;
+            }
+
+        }
+
+    });
+
+    const availableCredit = creditLimit - currentCreditDebt;
+
+    const currentStock = currentDebit + availableCredit;
+
+    availableCreditDisplay.textContent =
+        "$" + availableCredit.toFixed(2);
+
+    currentStockDisplay.textContent =
+        "$" + currentStock.toFixed(2);
+
+    console.log("Current Debit:", currentDebit);
+    console.log("Current Credit Debt:", currentCreditDebt);
     console.log("Available Credit:", availableCredit);
     console.log("Current Stock:", currentStock);
-    
-    currentStockDisplay.textContent = "$" + currentStock.toFixed(2);
+}
 
+calculateButton.addEventListener("click", function () {
+    calculateFinancials();
 });
+
 addMovementButton.addEventListener("click", function () {
 
     const name = movementNameInput.value;
