@@ -47,10 +47,6 @@ button {
     font-size: 14px;
 }
 
-#currentStock {
-    font-size: 32px;
-    font-weight: bold;
-}
 #themeButton {
     position: fixed;
     top: 20px;
@@ -63,9 +59,10 @@ button {
     color: #222222;
 }
 
-}
 body.dark-mode {
     background-color: #242424;
+}
+body.dark-mode h1 {
     color: #eeeeee;
 }
 
