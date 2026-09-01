@@ -9,13 +9,13 @@ function displayMovements() {
     movements.forEach(function (movement, index) {
 
         const movementElement = document.createElement("div");
-
-        movementElement.textContent =
-            movement.name + " | " +
-            movement.date + " | $" +
-            movement.amount.toFixed(2) + " | " +
-            movement.account + " | " +
-            movement.type;
+        
+movementElement.textContent =
+    movement.name + " | " +
+    movement.date + " | $" +
+    movement.amount.toFixed(2) + " | Card " +
+    movement.cardIndex + " | " +
+    movement.type;
 
         const deleteButton = document.createElement("button");
 
@@ -69,17 +69,7 @@ const movementCardInput =
 
 const addMovementButton =
     document.getElementById("addMovementButton");
-
-
-    console.log("Current Debit:", currentDebit);
-    console.log("Current Credit Debt:", currentCreditDebt);
-    console.log("Available Credit:", availableCredit);
-    console.log("Current Stock:", currentStock);
 }
-
-calculateButton.addEventListener("click", function () {
-    calculateFinancials();
-});
 
 addMovementButton.addEventListener("click", function () {
 
@@ -111,7 +101,7 @@ calculateFinancials();
     console.log("Name:", name);
     console.log("Date:", date);
     console.log("Amount:", amount);
-    console.log("Account:", account);
+    console.log("Card Index:", cardIndex);
     console.log("Type:", type);
 
 });
