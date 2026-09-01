@@ -103,10 +103,10 @@ const movement = {
     name: name,
     date: date,
     amount: amount,
+    cardName: cards[cardIndex].name,
     cardIndex: cardIndex,
     type: type
 };
-
 movements.push(movement);
 
 displayMovements();
