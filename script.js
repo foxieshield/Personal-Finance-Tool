@@ -135,6 +135,11 @@ addCardButton.addEventListener("click", function () {
     const name = cardNameInput.value;
     const type = cardTypeInput.value;
 
+if (name === "" || type === "") {
+    alert("Please enter a card name and select a card type.");
+    return;
+}
+    
     if (type === "credit") {
 
         const creditLimit = Number(creditLimitInput.value);
