@@ -85,6 +85,23 @@ const movementCardInput =
 const addMovementButton =
     document.getElementById("addMovementButton");
 
+const deleteCardModal =
+    document.getElementById("deleteCardModal");
+
+const deleteCardMessage =
+    document.getElementById("deleteCardMessage");
+
+const deleteRelatedMovements =
+    document.getElementById("deleteRelatedMovements");
+
+const cancelDeleteCard =
+    document.getElementById("cancelDeleteCard");
+
+const confirmDeleteCard =
+    document.getElementById("confirmDeleteCard");
+
+let cardToDelete = null;
+
 addMovementButton.addEventListener("click", function () {
 
     const name = movementNameInput.value;
@@ -258,21 +275,34 @@ function displayCards() {
         deleteButton.textContent = "Delete";
         deleteButton.classList.add("delete-button");
 
-        deleteButton.addEventListener("click", function () {
+     deleteButton.addEventListener("click", function () {
 
-            cards.splice(index, 1);
+    cardToDelete = index;
 
-            displayCards();
-            updateMovementCards();
-            calculateFinancials();
+    deleteCardMessage.textContent =
+        "Are you sure you want to delete " +
+        cards[index].name +
+        "?";
 
-        });
+    deleteRelatedMovements.checked = false;
+
+    deleteCardModal.style.display = "flex";
+
+});
 
         cardElement.appendChild(deleteButton);
 
         cardsList.appendChild(cardElement);
     });
 }
+
+cancelDeleteCard.addEventListener("click", function () {
+
+    deleteCardModal.style.display = "none";
+
+    cardToDelete = null;
+
+});
 
 function updateMovementCards() {
 
@@ -330,3 +360,34 @@ function calculateFinancials() {
 
     console.log("Total Available:", totalAvailable);
 }
+
+confirmDeleteCard.addEventListener("click", function () {
+
+    if (cardToDelete === null) {
+        return;
+    }
+
+    if (deleteRelatedMovements.checked) {
+
+        movements.splice(
+            0,
+            movements.length,
+            ...movements.filter(function (movement) {
+                return movement.cardIndex !== cardToDelete;
+            })
+        );
+
+    }
+
+    cards.splice(cardToDelete, 1);
+
+    deleteCardModal.style.display = "none";
+
+    cardToDelete = null;
+
+    displayCards();
+    displayMovements();
+    updateMovementCards();
+    calculateFinancials();
+
+});
