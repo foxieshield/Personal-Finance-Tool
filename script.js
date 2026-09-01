@@ -67,46 +67,6 @@ const movementTypeInput =
 const addMovementButton =
     document.getElementById("addMovementButton");
 
-function calculateFinancials() {
-
-    const creditLimit = Number(creditLimitInput.value);
-    const creditDebt = Number(creditDebtInput.value);
-    const debitMoney = Number(debitMoneyInput.value);
-
-    let currentDebit = debitMoney;
-    let currentCreditDebt = creditDebt;
-
-    movements.forEach(function (movement) {
-
-        if (movement.account === "debit") {
-
-            if (movement.type === "income") {
-                currentDebit += movement.amount;
-            } else if (movement.type === "expenditure") {
-                currentDebit -= movement.amount;
-            }
-
-        } else if (movement.account === "credit") {
-
-            if (movement.type === "income") {
-                currentCreditDebt -= movement.amount;
-            } else if (movement.type === "expenditure") {
-                currentCreditDebt += movement.amount;
-            }
-
-        }
-
-    });
-
-    const availableCredit = creditLimit - currentCreditDebt;
-
-    const currentStock = currentDebit + availableCredit;
-
-    availableCreditDisplay.textContent =
-        "$" + availableCredit.toFixed(2);
-
-    currentStockDisplay.textContent =
-        "$" + currentStock.toFixed(2);
 
     console.log("Current Debit:", currentDebit);
     console.log("Current Credit Debt:", currentCreditDebt);
@@ -129,7 +89,6 @@ addMovementButton.addEventListener("click", function () {
     const amount = Number(movementAmountInput.value);
     const account = movementAccountInput.value;
     const type = movementTypeInput.value;
-
 
 const movement = {
     name: name,
@@ -163,3 +122,127 @@ themeButton.addEventListener("click", function () {
     }
 
 });
+
+cardTypeInput.addEventListener("change", function () {
+
+    if (cardTypeInput.value === "credit") {
+        creditFields.style.display = "block";
+        debitFields.style.display = "none";
+    } else {
+        creditFields.style.display = "none";
+        debitFields.style.display = "block";
+    }
+
+});
+
+addCardButton.addEventListener("click", function () {
+
+    const name = cardNameInput.value;
+    const type = cardTypeInput.value;
+
+    if (type === "credit") {
+
+        const creditLimit = Number(creditLimitInput.value);
+        const debt = Number(creditDebtInput.value);
+
+        const card = {
+            name: name,
+            type: type,
+            creditLimit: creditLimit,
+            debt: debt
+        };
+
+        cards.push(card);
+
+    } else {
+
+        const balance = Number(debitMoneyInput.value);
+
+        const card = {
+            name: name,
+            type: type,
+            balance: balance
+        };
+
+        cards.push(card);
+    }
+
+    displayCards();
+    calculateFinancials();
+
+});
+
+function displayCards() {
+
+    cardsList.innerHTML = "";
+
+    cards.forEach(function (card, index) {
+
+        const cardElement = document.createElement("div");
+
+        if (card.type === "credit") {
+
+            const availableCredit = card.creditLimit - card.debt;
+
+            cardElement.textContent =
+                card.name +
+                " | Credit Card | Limit: $" +
+                card.creditLimit.toFixed(2) +
+                " | Debt: $" +
+                card.debt.toFixed(2) +
+                " | Available: $" +
+                availableCredit.toFixed(2);
+
+        } else {
+
+            cardElement.textContent =
+                card.name +
+                " | Debit Card | Money: $" +
+                card.balance.toFixed(2);
+
+        }
+
+        const deleteButton = document.createElement("button");
+
+        deleteButton.textContent = "Delete";
+        deleteButton.classList.add("delete-button");
+
+        deleteButton.addEventListener("click", function () {
+
+            cards.splice(index, 1);
+
+            displayCards();
+            calculateFinancials();
+
+        });
+
+        cardElement.appendChild(deleteButton);
+
+        cardsList.appendChild(cardElement);
+    });
+}
+
+function calculateFinancials() {
+
+    let totalAvailable = 0;
+
+    cards.forEach(function (card) {
+
+        if (card.type === "debit") {
+
+            totalAvailable += card.balance;
+
+        } else if (card.type === "credit") {
+
+            const availableCredit = card.creditLimit - card.debt;
+
+            totalAvailable += availableCredit;
+        }
+
+    });
+
+    totalAvailableDisplay.textContent =
+        "$" + totalAvailable.toFixed(2);
+
+    console.log("Total Available:", totalAvailable);
+}
