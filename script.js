@@ -122,7 +122,8 @@ cardTypeInput.addEventListener("change", function () {
     if (cardTypeInput.value === "credit") {
         creditFields.style.display = "block";
         debitFields.style.display = "none";
-    } else {
+
+    } else if (cardTypeInput.value === "debit") {
         creditFields.style.display = "none";
         debitFields.style.display = "block";
     }
