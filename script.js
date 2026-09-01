@@ -25,12 +25,24 @@ deleteButton.textContent = "Delete";
 deleteButton.classList.add("delete-button");
 
 deleteButton.addEventListener("click", function () {
-   movements.splice(index, 1);
 
-displayMovements();
-displayCards();
-calculateFinancials();
+    const hasMovements = movements.some(function (movement) {
+        return movement.cardIndex === index;
+    });
+
+    if (hasMovements) {
+        alert("This card cannot be deleted because it has movements.");
+        return;
+    }
+
+    cards.splice(index, 1);
+
+    displayCards();
+    updateMovementCards();
+    calculateFinancials();
+
 });
+        
         movementElement.appendChild(deleteButton);
 
         movementsList.appendChild(movementElement);
