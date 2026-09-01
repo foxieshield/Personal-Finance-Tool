@@ -15,21 +15,40 @@
     <h1>Personal Finance Tracker</h1>
 
     <main>
+        
+            <section>
+    <h2>Add Card / Account</h2>
 
-        <section>
-            <h2>Financial Information</h2>
+    <label for="cardName">Name / Number</label>
+    <input type="text" id="cardName" placeholder="e.g. BBVA •••• 1234">
 
-            <label for="creditLimit">Credit Card Credit</label>
-            <input type="number" id="creditLimit" placeholder="Enter available credit">
+    <label for="cardType">Type</label>
+    <select id="cardType">
+        <option value="debit">Debit Card</option>
+        <option value="credit">Credit Card</option>
+    </select>
 
-            <label for="creditDebt">Credit Card Current Debt</label>
-            <input type="number" id="creditDebt" placeholder="Enter current debt">
+    <div id="creditFields">
+        <label for="creditLimit">Credit Limit</label>
+        <input type="number" id="creditLimit" placeholder="Enter credit limit">
 
-            <label for="debitMoney">Debit Card Current Money</label>
-            <input type="number" id="debitMoney" placeholder="Enter current money">
+        <label for="creditDebt">Current Debt</label>
+        <input type="number" id="creditDebt" placeholder="Enter current debt">
+    </div>
 
-            <button id="calculateButton">Calculate Current Stock</button>
-        </section>
+    <div id="debitFields">
+        <label for="debitMoney">Current Money</label>
+        <input type="number" id="debitMoney" placeholder="Enter current money">
+    </div>
+
+    <button id="addCardButton">Add Card</button>
+             </section>
+
+<section>
+    <h2>Your Cards / Accounts</h2>
+
+    <div id="cardsList"></div>
+</section> 
         
  <section>
     <h2>Financial Summary</h2>
