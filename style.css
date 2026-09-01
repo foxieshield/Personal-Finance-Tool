@@ -89,3 +89,8 @@ body.dark-mode button {
     color: white;
     border-color: white;
 }
+
+#creditFields,
+#debitFields {
+    display: none;
+}
