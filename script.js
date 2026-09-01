@@ -69,7 +69,6 @@ const movementCardInput =
 
 const addMovementButton =
     document.getElementById("addMovementButton");
-}
 
 addMovementButton.addEventListener("click", function () {
 
