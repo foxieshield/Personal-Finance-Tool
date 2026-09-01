@@ -60,14 +60,15 @@ button {
 }
 
 body.dark-mode {
-    background-color: #242424;
+    background-color: #1D1E24;
+    color: #eeeeee;
 }
 body.dark-mode h1 {
     color: #eeeeee;
 }
 
 body.dark-mode section {
-    background-color: #2d2d2d;
+    background-color: #1D1E24;
     color: #eeeeee;
     border-color: #555555;
 }
