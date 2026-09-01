@@ -34,21 +34,38 @@ deleteButton.addEventListener("click", function () {
     });
 }
 
-const movementNameInput = document.getElementById("movementName");
-const movementDateInput = document.getElementById("movementDate");
-const movementAmountInput = document.getElementById("movementAmount");
-const movementAccountInput = document.getElementById("movementAccount");
-const movementTypeInput = document.getElementById("movementType");
+const cardsList = document.getElementById("cardsList");
+const cards = [];
 
-const addMovementButton = document.getElementById("addMovementButton");
+const cardNameInput = document.getElementById("cardName");
+const cardTypeInput = document.getElementById("cardType");
+
+const creditFields = document.getElementById("creditFields");
+const debitFields = document.getElementById("debitFields");
 
 const creditLimitInput = document.getElementById("creditLimit");
 const creditDebtInput = document.getElementById("creditDebt");
 const debitMoneyInput = document.getElementById("debitMoney");
 
-const calculateButton = document.getElementById("calculateButton");
-const currentStockDisplay = document.getElementById("currentStock");
-const availableCreditDisplay = document.getElementById("availableCredit");
+const addCardButton = document.getElementById("addCardButton");
+
+const totalAvailableDisplay =
+    document.getElementById("totalAvailable");
+
+const movementNameInput =
+    document.getElementById("movementName");
+
+const movementDateInput =
+    document.getElementById("movementDate");
+
+const movementAmountInput =
+    document.getElementById("movementAmount");
+
+const movementTypeInput =
+    document.getElementById("movementType");
+
+const addMovementButton =
+    document.getElementById("addMovementButton");
 
 function calculateFinancials() {
 
