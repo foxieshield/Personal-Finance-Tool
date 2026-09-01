@@ -9,8 +9,6 @@ function displayMovements() {
     movements.forEach(function (movement, index) {
 
         const movementElement = document.createElement("div");
-        
-const card = cards[movement.cardIndex];
 
 movementElement.textContent =
     movement.name + " | " +
@@ -23,26 +21,15 @@ movementElement.textContent =
 
 deleteButton.textContent = "Delete";
 deleteButton.classList.add("delete-button");
-
 deleteButton.addEventListener("click", function () {
 
-    const hasMovements = movements.some(function (movement) {
-        return movement.cardIndex === index;
-    });
+    movements.splice(index, 1);
 
-    if (hasMovements) {
-        alert("This card cannot be deleted because it has movements.");
-        return;
-    }
-
-    cards.splice(index, 1);
-
+    displayMovements();
     displayCards();
-    updateMovementCards();
     calculateFinancials();
 
-});
-        
+}); 
         movementElement.appendChild(deleteButton);
 
         movementsList.appendChild(movementElement);
