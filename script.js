@@ -95,6 +95,7 @@ const movement = {
 movements.push(movement);
 
 displayMovements();
+displayCards();
 calculateFinancials();
     
     console.log("Name:", name);
