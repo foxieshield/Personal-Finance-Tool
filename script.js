@@ -87,6 +87,18 @@ const cancelDeleteCard =
 const confirmDeleteCard =
     document.getElementById("confirmDeleteCard");
 
+const resetAllButton =
+    document.getElementById("resetAllButton");
+
+const resetAllModal =
+    document.getElementById("resetAllModal");
+
+const cancelResetAll =
+    document.getElementById("cancelResetAll");
+
+const confirmResetAll =
+    document.getElementById("confirmResetAll");
+
 let cardToDelete = null;
 
 addMovementButton.addEventListener("click", function () {
@@ -376,5 +388,31 @@ confirmDeleteCard.addEventListener("click", function () {
     displayMovements();
     updateMovementCards();
     calculateFinancials();
+
+});
+
+resetAllButton.addEventListener("click", function () {
+
+    resetAllModal.style.display = "flex";
+
+});
+
+cancelResetAll.addEventListener("click", function () {
+
+    resetAllModal.style.display = "none";
+
+});
+
+confirmResetAll.addEventListener("click", function () {
+
+    cards.length = 0;
+    movements.length = 0;
+
+    displayCards();
+    displayMovements();
+    updateMovementCards();
+    calculateFinancials();
+
+    resetAllModal.style.display = "none";
 
 });
