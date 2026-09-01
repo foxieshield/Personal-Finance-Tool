@@ -19,14 +19,15 @@
             <section>
     <h2>Add Card / Account</h2>
 
-    <label for="cardName">Name / Number</label>
+    <label for="cardName">Card name</label>
     <input type="text" id="cardName" placeholder="e.g. BBVA •••• 1234">
 
     <label for="cardType">Type</label>
     <select id="cardType">
-        <option value="debit">Debit Card</option>
-        <option value="credit">Credit Card</option>
-    </select>
+    <option value="" selected disabled>Select card type</option>
+    <option value="debit">Debit Card</option>
+    <option value="credit">Credit Card</option>
+      </select>
 
     <div id="creditFields">
         <label for="creditLimit">Credit Limit</label>
@@ -58,7 +59,7 @@
         <span id="totalAvailable">$0.00</span>
     </p>
 </section>
-        <section>
+              <section>
           <h2>Add Movement</h2>
 
     <label for="movementName">Name</label>
@@ -81,13 +82,13 @@
     </select>
 
     <button id="addMovementButton">Add Movement</button>
-        </section>
+             </section>
 
-      <section>
+     <section>
           <h2>Movements</h2>
 
           <div id="movementsList"></div>
-      </section>
+     </section>
         
     </main>
 
