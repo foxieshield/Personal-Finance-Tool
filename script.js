@@ -233,23 +233,40 @@ function updateMovementCards() {
     });
 }
 
-function calculateFinancials() {
+ffunction calculateFinancials() {
 
     let totalAvailable = 0;
 
-    cards.forEach(function (card) {
+    cards.forEach(function (card, cardIndex) {
+
+        let currentBalance;
 
         if (card.type === "debit") {
 
-            totalAvailable += card.balance;
+            currentBalance = card.balance;
 
         } else if (card.type === "credit") {
 
-            const availableCredit = card.creditLimit - card.debt;
-
-            totalAvailable += availableCredit;
+            currentBalance = card.creditLimit - card.debt;
         }
 
+        movements.forEach(function (movement) {
+
+            if (movement.cardIndex === cardIndex) {
+
+                if (movement.type === "income") {
+                    currentBalance += movement.amount;
+                }
+
+                if (movement.type === "expenditure") {
+                    currentBalance -= movement.amount;
+                }
+
+            }
+
+        });
+
+        totalAvailable += currentBalance;
     });
 
     totalAvailableDisplay.textContent =
