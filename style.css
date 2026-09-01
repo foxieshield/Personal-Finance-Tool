@@ -65,29 +65,32 @@ section {
     color: black;
     border-color: #ccc;
 }
-
 body.dark-mode {
-    background-color: black;
-    color: white;
+    background-color: #242424;
+    color: #eeeeee;
 }
 
 body.dark-mode section {
-    background-color: black;
-    color: white;
-    border-color: white;
+    background-color: #2d2d2d;
+    color: #eeeeee;
+    border-color: #555555;
 }
 
 body.dark-mode input,
 body.dark-mode select {
-    background-color: black;
-    color: white;
-    border-color: white;
+    background-color: #383838;
+    color: #eeeeee;
+    border-color: #666666;
 }
 
 body.dark-mode button {
-    background-color: black;
-    color: white;
-    border-color: white;
+    background-color: #383838;
+    color: #eeeeee;
+    border-color: #666666;
+}
+
+body.dark-mode input::placeholder {
+    color: #aaaaaa;
 }
 
 #creditFields,
