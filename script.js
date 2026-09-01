@@ -10,13 +10,15 @@ function displayMovements() {
 
         const movementElement = document.createElement("div");
         
+const card = cards[movement.cardIndex];
+
 movementElement.textContent =
     movement.name + " | " +
     movement.date + " | $" +
-    movement.amount.toFixed(2) + " | Card " +
-    movement.cardIndex + " | " +
+    movement.amount.toFixed(2) + " | " +
+    card.name + " | " +
     movement.type;
-
+        
         const deleteButton = document.createElement("button");
 
 deleteButton.textContent = "Delete";
