@@ -134,3 +134,14 @@ body.dark-mode .modal-content {
     gap: 10px;
     margin-top: 20px;
 }
+
+#deleteRelatedMovements {
+    width: auto;
+    margin: 0;
+}
+
+.modal-content label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
