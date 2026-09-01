@@ -210,29 +210,34 @@ function displayCards() {
 
         const cardElement = document.createElement("div");
 
+        const currentValue =
+            getCurrentCardValue(card, index);
+
         if (card.type === "credit") {
 
-            const availableCredit = card.creditLimit - card.debt;
+            const currentDebt =
+                card.creditLimit - currentValue;
 
             cardElement.textContent =
                 card.name +
                 " | Credit Card | Limit: $" +
                 card.creditLimit.toFixed(2) +
-                " | Debt: $" +
-                card.debt.toFixed(2) +
+                " | Current Debt: $" +
+                currentDebt.toFixed(2) +
                 " | Available: $" +
-                availableCredit.toFixed(2);
+                currentValue.toFixed(2);
 
         } else {
 
             cardElement.textContent =
                 card.name +
-                " | Debit Card | Money: $" +
-                card.balance.toFixed(2);
+                " | Debit Card | Current Money: $" +
+                currentValue.toFixed(2);
 
         }
 
-        const deleteButton = document.createElement("button");
+        const deleteButton =
+            document.createElement("button");
 
         deleteButton.textContent = "Delete";
         deleteButton.classList.add("delete-button");
@@ -241,9 +246,9 @@ function displayCards() {
 
             cards.splice(index, 1);
 
-           displayCards();
-           updateMovementCards();
-           calculateFinancials();
+            displayCards();
+            updateMovementCards();
+            calculateFinancials();
 
         });
 
