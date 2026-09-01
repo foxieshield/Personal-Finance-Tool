@@ -64,6 +64,9 @@ const movementAmountInput =
 const movementTypeInput =
     document.getElementById("movementType");
 
+const movementCardInput =
+    document.getElementById("movementCard");
+
 const addMovementButton =
     document.getElementById("addMovementButton");
 
@@ -87,14 +90,16 @@ addMovementButton.addEventListener("click", function () {
     const date = `${day}/${month}/${year}`;
     
     const amount = Number(movementAmountInput.value);
-    const account = movementAccountInput.value;
+    
+    const cardIndex = Number(movementCardInput.value);
+    
     const type = movementTypeInput.value;
 
 const movement = {
     name: name,
     date: date,
     amount: amount,
-    account: account,
+    cardIndex: cardIndex,
     type: type
 };
 
@@ -167,8 +172,9 @@ addCardButton.addEventListener("click", function () {
         cards.push(card);
     }
 
-    displayCards();
-    calculateFinancials();
+displayCards();
+updateMovementCards();
+calculateFinancials();
 
 });
 
@@ -211,14 +217,30 @@ function displayCards() {
 
             cards.splice(index, 1);
 
-            displayCards();
-            calculateFinancials();
+           displayCards();
+           updateMovementCards();
+           calculateFinancials();
 
         });
 
         cardElement.appendChild(deleteButton);
 
         cardsList.appendChild(cardElement);
+    });
+}
+
+function updateMovementCards() {
+
+    movementCardInput.innerHTML = "";
+
+    cards.forEach(function (card, index) {
+
+        const option = document.createElement("option");
+
+        option.value = index;
+        option.textContent = card.name;
+
+        movementCardInput.appendChild(option);
     });
 }
 
