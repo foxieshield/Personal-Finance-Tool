@@ -233,7 +233,7 @@ function updateMovementCards() {
     });
 }
 
-ffunction calculateFinancials() {
+function calculateFinancials() {
 
     let totalAvailable = 0;
 
