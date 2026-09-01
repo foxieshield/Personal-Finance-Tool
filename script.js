@@ -173,6 +173,35 @@ calculateFinancials();
 
 });
 
+function getCurrentCardValue(card, cardIndex) {
+
+    let currentValue;
+
+    if (card.type === "debit") {
+        currentValue = card.balance;
+    } else if (card.type === "credit") {
+        currentValue = card.creditLimit - card.debt;
+    }
+
+    movements.forEach(function (movement) {
+
+        if (movement.cardIndex === cardIndex) {
+
+            if (movement.type === "income") {
+                currentValue += movement.amount;
+            }
+
+            if (movement.type === "expenditure") {
+                currentValue -= movement.amount;
+            }
+
+        }
+
+    });
+
+    return currentValue;
+}
+
 function displayCards() {
 
     cardsList.innerHTML = "";
