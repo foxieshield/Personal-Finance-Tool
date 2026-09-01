@@ -23,10 +23,11 @@ deleteButton.textContent = "Delete";
 deleteButton.classList.add("delete-button");
 
 deleteButton.addEventListener("click", function () {
-    movements.splice(index, 1);
+   movements.splice(index, 1);
 
-    displayMovements();
-    calculateFinancials();
+displayMovements();
+displayCards();
+calculateFinancials();
 });
         movementElement.appendChild(deleteButton);
 
