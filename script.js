@@ -16,7 +16,7 @@ movementElement.textContent =
     movement.name + " | " +
     movement.date + " | $" +
     movement.amount.toFixed(2) + " | " +
-    card.name + " | " +
+    movement.cardName + " | " +
     movement.type;
         
         const deleteButton = document.createElement("button");
